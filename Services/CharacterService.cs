@@ -13,7 +13,7 @@ public class CharacterService
         _connectionString = configuration.GetConnectionString("DefaultConnection")!;
     }
 
-    public List<MarvelCharacter> GetAll()
+    public List<MarvelCharacter> GetAll(string? search, int page, int pageSize)
     {
         var characters = new List<MarvelCharacter>();
 
@@ -33,8 +33,18 @@ public class CharacterService
                                          t.name
                                   FROM characters c
                                   JOIN teams t ON c.team_id = t.id
+                                  WHERE @search = ''
+                                     OR LOWER(c.name) LIKE LOWER(@searchPattern)
+                                     OR LOWER(c.hero_name) LIKE LOWER(@searchPattern)
+                                     OR LOWER(t.name) LIKE LOWER(@searchPattern)
                                   ORDER BY c.hero_name
+                                  LIMIT @pageSize OFFSET @offset
                               """;
+
+        command.AddParameter("@search", search ?? "");
+        command.AddParameter("@searchPattern", $"%{search}%");
+        command.AddParameter("@pageSize", pageSize);
+        command.AddParameter("@offset", (page - 1) * pageSize);
 
         using var reader = command.ExecuteReader();
 
@@ -159,5 +169,28 @@ public class CharacterService
         command.AddParameter("@id", id);
 
         command.ExecuteNonQuery();
+    }
+    
+    public int Count(string? search)
+    {
+        using var connection = new NpgsqlConnection(_connectionString);
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = """
+                                  SELECT COUNT(*)
+                                  FROM characters c
+                                  JOIN teams t ON c.team_id = t.id
+                                  WHERE @search = ''
+                                     OR LOWER(c.name) LIKE LOWER(@searchPattern)
+                                     OR LOWER(c.hero_name) LIKE LOWER(@searchPattern)
+                                     OR LOWER(t.name) LIKE LOWER(@searchPattern)
+                              """;
+
+        command.AddParameter("@search", search ?? "");
+        command.AddParameter("@searchPattern", $"%{search}%");
+
+        return Convert.ToInt32(command.ExecuteScalar());
     }
 }

@@ -10,13 +10,27 @@ public class IndexModel : PageModel
 
     public List<MarvelCharacter> Characters { get; set; } = new();
 
+    public string? Search { get; set; }
+
+    public int CurrentPage { get; set; }
+
+    public int TotalPages { get; set; }
+
     public IndexModel(CharacterService characterService)
     {
         _characterService = characterService;
     }
 
-    public void OnGet()
+    public void OnGet(string? search, int page = 1)
     {
-        Characters = _characterService.GetAll();
+        Search = search;
+        CurrentPage = page;
+
+        const int pageSize = 5;
+
+        Characters = _characterService.GetAll(search, page, pageSize);
+
+        var totalCharacters = _characterService.Count(search);
+        TotalPages = (int)Math.Ceiling(totalCharacters / (double)pageSize);
     }
 }
