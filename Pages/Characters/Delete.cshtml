@@ -1,0 +1,19 @@
+@page "{id:int}"
+@model MarvelManager.Pages.Characters.DeleteModel
+
+<h1>Supprimer un personnage</h1>
+
+<div class="alert alert-danger">
+    Es-tu sûr de vouloir supprimer
+    <strong>@Model.Character.HeroName</strong> ?
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">
+        Supprimer
+    </button>
+
+    <a class="btn btn-secondary" asp-page="Index">
+        Annuler
+    </a>
+</form>

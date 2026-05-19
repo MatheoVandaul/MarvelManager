@@ -143,4 +143,21 @@ public class CharacterService
 
         command.ExecuteNonQuery();
     }
+    
+    public void Delete(int id)
+    {
+        using var connection = new NpgsqlConnection(_connectionString);
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = """
+                                  DELETE FROM characters
+                                  WHERE id = @id
+                              """;
+
+        command.AddParameter("@id", id);
+
+        command.ExecuteNonQuery();
+    }
 }

@@ -41,6 +41,11 @@
                    asp-route-id="@character.Id">
                     Modifier
                 </a>
+                <a class="btn btn-sm btn-danger"
+                   asp-page="/Characters/Delete"
+                   asp-route-id="@character.Id">
+                    Supprimer
+                </a>
             </td>
             
         </tr>
