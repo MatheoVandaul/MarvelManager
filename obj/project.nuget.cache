@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "w0qjtzWfKrY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mathe\\Desktop\\ProjetMatheoVandaulAppliInfo\\MarvelManager\\MarvelManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mathe\\.nuget\\packages\\npgsql\\10.0.2\\npgsql.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

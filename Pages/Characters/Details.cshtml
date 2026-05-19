@@ -1,0 +1,11 @@
+@page "{id:int}"
+@model MarvelManager.Pages.Characters.DetailsModel
+
+<h1>@Model.Character.HeroName</h1>
+
+<p><strong>Nom réel :</strong> @Model.Character.Name</p>
+<p><strong>Pouvoir :</strong> @Model.Character.Power</p>
+<p><strong>Niveau :</strong> @Model.Character.PowerLevel / 100</p>
+<p><strong>Équipe :</strong> @Model.Character.TeamName</p>
+
+<a class="btn btn-secondary" asp-page="Index">Retour</a>

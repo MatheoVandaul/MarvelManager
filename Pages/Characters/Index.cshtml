@@ -1,0 +1,43 @@
+@page
+@model MarvelManager.Pages.Characters.IndexModel
+
+@{
+    ViewData["Title"] = "Personnages Marvel";
+}
+
+<h1>Personnages Marvel</h1>
+
+<a class="btn btn-primary mb-3" asp-page="/Characters/Create">
+    Ajouter un personnage
+</a>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Héros</th>
+        <th>Nom réel</th>
+        <th>Pouvoir</th>
+        <th>Niveau</th>
+        <th>Équipe</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var character in Model.Characters)
+    {
+        <tr>
+            <td>@character.HeroName</td>
+            <td>@character.Name</td>
+            <td>@character.Power</td>
+            <td>@character.PowerLevel</td>
+            <td>@character.TeamName</td>
+            <td>
+                <a class="btn btn-sm btn-info"
+                   asp-page="/Characters/Details"
+                   asp-route-id="@character.Id">
+                    Détails
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
