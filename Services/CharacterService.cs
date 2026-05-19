@@ -114,4 +114,33 @@ public class CharacterService
             TeamName = reader.GetString(7)
         };
     }
+    public void Update(MarvelCharacter character)
+    {
+        using var connection = new NpgsqlConnection(_connectionString);
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = """
+                                  UPDATE characters
+                                  SET name = @name,
+                                      hero_name = @heroName,
+                                      power = @power,
+                                      power_level = @powerLevel,
+                                      image_url = @imageUrl,
+                                      team_id = @teamId
+                                  WHERE id = @id
+                              """;
+
+        command.AddParameter("@id", character.Id);
+        command.AddParameter("@name", character.Name);
+        command.AddParameter("@heroName", character.HeroName);
+        command.AddParameter("@power", character.Power);
+        command.AddParameter("@powerLevel", character.PowerLevel);
+        command.AddParameter("@imageUrl",
+            character.ImageUrl ?? (object)DBNull.Value);
+        command.AddParameter("@teamId", character.TeamId);
+
+        command.ExecuteNonQuery();
+    }
 }

@@ -36,7 +36,13 @@
                    asp-route-id="@character.Id">
                     Détails
                 </a>
+                <a class="btn btn-sm btn-warning"
+                   asp-page="/Characters/Edit"
+                   asp-route-id="@character.Id">
+                    Modifier
+                </a>
             </td>
+            
         </tr>
     }
     </tbody>

@@ -1,0 +1,51 @@
+@page "{id:int}"
+@model MarvelManager.Pages.Characters.EditModel
+
+<h1>Modifier un personnage</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Character.Id"/>
+
+    <div class="mb-3">
+        <label asp-for="Character.Name"></label>
+        <input asp-for="Character.Name" class="form-control"/>
+        <span asp-validation-for="Character.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Character.HeroName"></label>
+        <input asp-for="Character.HeroName" class="form-control"/>
+        <span asp-validation-for="Character.HeroName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Character.Power"></label>
+        <input asp-for="Character.Power" class="form-control"/>
+        <span asp-validation-for="Character.Power" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Character.PowerLevel"></label>
+        <input asp-for="Character.PowerLevel" class="form-control"/>
+        <span asp-validation-for="Character.PowerLevel" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Character.ImageUrl"></label>
+        <input asp-for="Character.ImageUrl" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label>Équipe</label>
+        <select asp-for="Character.TeamId"
+                asp-items="Model.TeamOptions"
+                class="form-select">
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">
+        Modifier
+    </button>
+
+</form>
