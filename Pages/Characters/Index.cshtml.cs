@@ -21,14 +21,14 @@ public class IndexModel : PageModel
         _characterService = characterService;
     }
 
-    public void OnGet(string? search, int page = 1)
+    public void OnGet(string? search, int pageNumber = 1)
     {
         Search = search;
-        CurrentPage = page;
+        CurrentPage = pageNumber;
 
         const int pageSize = 5;
 
-        Characters = _characterService.GetAll(search, page, pageSize);
+        Characters = _characterService.GetAll(search, pageNumber, pageSize);
 
         var totalCharacters = _characterService.Count(search);
         TotalPages = (int)Math.Ceiling(totalCharacters / (double)pageSize);
