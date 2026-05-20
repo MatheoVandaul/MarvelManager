@@ -1,8 +1,16 @@
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 using MarvelManager.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<UserService>();
 // Add services to the container.
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
+
+builder.Services.AddAuthorization();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<CharacterService>();
 builder.Services.AddScoped<TeamService>();
@@ -16,13 +24,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapRazorPages()
    .WithStaticAssets();
 
