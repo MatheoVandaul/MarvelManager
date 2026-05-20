@@ -1,7 +1,7 @@
 
 using MarvelManager.Services;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<UserService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<CharacterService>();
