@@ -28,7 +28,7 @@ public class IndexModel : PageModel
         Search = search;
         CurrentPage = pageNumber;
 
-        const int pageSize = 5;
+        const int pageSize = 6;
 
         Characters = _characterService.GetAll(search, pageNumber, pageSize);
 

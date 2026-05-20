@@ -1,11 +1,51 @@
 @page "{id:int}"
 @model MarvelManager.Pages.Characters.DetailsModel
 
-<h1>@Model.Character.HeroName</h1>
+<div class="container mt-5">
 
-<p><strong>Nom réel :</strong> @Model.Character.Name</p>
-<p><strong>Pouvoir :</strong> @Model.Character.Power</p>
-<p><strong>Niveau :</strong> @Model.Character.PowerLevel / 100</p>
-<p><strong>Équipe :</strong> @Model.Character.TeamName</p>
+    <div class="card character-card">
 
-<a class="btn btn-secondary" asp-page="Index">Retour</a>
+        @if (!string.IsNullOrEmpty(Model.Character.ImageUrl))
+        {
+            <img src="@Model.Character.ImageUrl"
+                 class="details-image"
+                 alt="@Model.Character.HeroName" />
+        }
+
+        <div class="card-body">
+
+            <h1 class="text-danger fw-bold">
+                @Model.Character.HeroName
+            </h1>
+
+            <h4 class="text-light">
+                @Model.Character.Name
+            </h4>
+
+            <hr />
+
+            <p>
+                <strong>Pouvoir :</strong>
+                @Model.Character.Power
+            </p>
+
+            <p>
+                <strong>Niveau :</strong>
+                @Model.Character.PowerLevel / 100
+            </p>
+
+            <p>
+                <strong>Équipe :</strong>
+                @Model.Character.TeamName
+            </p>
+
+            <a class="btn btn-primary"
+               asp-page="/Characters/Index">
+                Retour
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

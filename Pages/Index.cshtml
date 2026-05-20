@@ -1,16 +1,129 @@
 ﻿@page
 @model IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Accueil";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 <div class="text-center mt-5">
-    <a class="btn btn-primary btn-lg"
-       asp-page="/Characters/Index">
-        Voir les personnages Marvel
-    </a>
+
+    <h1 class="display-2 text-danger fw-bold">
+        MARVEL UNIVERSE MANAGER
+    </h1>
+
+    <p class="lead mt-4">
+        Gérez les héros les plus puissants de l’univers Marvel.
+    </p>
+
+    <p class="mb-5">
+        Consultez les personnages, leurs pouvoirs, leurs équipes
+        et leur niveau de puissance.
+    </p>
+
+    <div class="mb-5">
+
+        <a class="btn btn-danger btn-lg me-2"
+           asp-page="/Characters/Index">
+            Explorer les personnages
+        </a>
+
+        @if (!User.Identity?.IsAuthenticated ?? true)
+        {
+            <a class="btn btn-outline-light btn-lg"
+               asp-page="/Account/Login">
+                Connexion
+            </a>
+        }
+
+    </div>
+
+</div>
+
+<hr class="border-danger" />
+
+<div class="row mt-5 text-center">
+
+    <div class="col-md-4 mb-4">
+        <div class="card character-card h-100 p-3">
+
+            <h2 class="text-danger">
+                Personnages
+            </h2>
+
+            <p>
+                Consultez une base de données complète de héros Marvel.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card character-card h-100 p-3">
+
+            <h2 class="text-danger">
+                Équipes
+            </h2>
+
+            <p>
+                Découvrez les Avengers, X-Men,
+                Guardians of the Galaxy et bien plus.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card character-card h-100 p-3">
+
+            <h2 class="text-danger">
+                Administration
+            </h2>
+
+            <p>
+                Ajoutez, modifiez et exportez les personnages Marvel.
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-5 text-center">
+
+    <h2 class="text-danger mb-4">
+        Fonctionnalités principales
+    </h2>
+
+</div>
+
+<div class="row text-center">
+
+    <div class="col-md-3 mb-4">
+        <div class="card character-card p-3">
+            <h4>CRUD</h4>
+            <p>Gestion complète des personnages.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card character-card p-3">
+            <h4>Recherche</h4>
+            <p>Recherche par héros ou équipe.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card character-card p-3">
+            <h4>Pagination</h4>
+            <p>Navigation fluide entre les pages.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card character-card p-3">
+            <h4>Export CSV</h4>
+            <p>Exportation des données Marvel.</p>
+        </div>
+    </div>
+
 </div>

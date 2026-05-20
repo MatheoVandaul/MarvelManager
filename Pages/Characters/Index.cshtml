@@ -32,52 +32,57 @@
     Exporter CSV
 </a>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Héros</th>
-        <th>Nom réel</th>
-        <th>Pouvoir</th>
-        <th>Niveau</th>
-        <th>Équipe</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="row">
     @foreach (var character in Model.Characters)
     {
-        <tr>
-            <td>@character.HeroName</td>
-            <td>@character.Name</td>
-            <td>@character.Power</td>
-            <td>@character.PowerLevel</td>
-            <td>@character.TeamName</td>
-            <td>
-                <a class="btn btn-sm btn-info"
-                   asp-page="/Characters/Details"
-                   asp-route-id="@character.Id">
-                    Détails
-                </a>
-                @if (User.IsInRole("Admin"))
+        <div class="col-md-4 mb-4">
+            <div class="card character-card h-100">
+                @if (!string.IsNullOrEmpty(character.ImageUrl))
                 {
-                    <a class="btn btn-sm btn-warning"
-                       asp-page="/Characters/Edit"
-                       asp-route-id="@character.Id">
-                        Modifier
-                    </a>
-                
-                    <a class="btn btn-sm btn-danger"
-                       asp-page="/Characters/Delete"
-                       asp-route-id="@character.Id">
-                        Supprimer
-                    </a>
+                    <img src="@character.ImageUrl"
+                         class="card-img-top character-image"
+                         alt="@character.HeroName" />
                 }
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold">
+                        @character.HeroName
+                    </h5>
 
-            </td>
-            
-        </tr>
+                    <h6 class="card-subtitle mb-2 text-light">
+                        @character.Name
+                    </h6>
+
+                    <p class="card-text">
+                        <strong>Pouvoir :</strong> @character.Power<br/>
+                        <strong>Niveau :</strong> @character.PowerLevel / 100<br/>
+                        <strong>Équipe :</strong> @character.TeamName
+                    </p>
+
+                    <a class="btn btn-sm btn-info"
+                       asp-page="/Characters/Details"
+                       asp-route-id="@character.Id">
+                        Détails
+                    </a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-sm btn-warning"
+                           asp-page="/Characters/Edit"
+                           asp-route-id="@character.Id">
+                            Modifier
+                        </a>
+
+                        <a class="btn btn-sm btn-danger"
+                           asp-page="/Characters/Delete"
+                           asp-route-id="@character.Id">
+                            Supprimer
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
     }
-    </tbody>
-</table>
+</div>
 <nav>
     <ul class="pagination">
 

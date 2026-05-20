@@ -21,7 +21,6 @@ C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net1
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\scopedcss\bundle\MarvelManager.styles.css
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\scopedcss\projectbundle\MarvelManager.bundle.scp.css
-C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\compressed\ul92l3273b-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\compressed\fdglgocrih-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\compressed\gon0hv4x9i-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\compressed\cqqud1pbcr-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -99,3 +98,4 @@ C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\bin\Debug\net1
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\MarvelManager.csproj.AssemblyReference.cache
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\MarvelMa.8E3AE169.Up2Date
 C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\MarvelManager.sourcelink.json
+C:\Users\mathe\Desktop\ProjetMatheoVandaulAppliInfo\MarvelManager\obj\Debug\net10.0\compressed\ul92l3273b-{0}-hxt0yj70dd-hxt0yj70dd.gz
