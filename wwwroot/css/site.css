@@ -1,15 +1,50 @@
+
+/* ============================================================
+   BASE
+   ============================================================ */
 body {
-  background-color: #121212;
-  color: #f5f5f5;
+    background-color: #121212;
+    color: #f5f5f5;
 }
 
-/* Navbar */
+a {
+    color: #ff4d4d;
+}
+
+a:hover {
+    color: #ff9999;
+}
+
+/* ============================================================
+   TITRES
+   ============================================================ */
+h1, h2, h3 {
+    color: #ff3b3b;
+    font-weight: bold;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
 .navbar {
-    background-color: #b30000 !important;
+    background: linear-gradient(90deg, #660000, #b30000);
+    box-shadow: 0 2px 12px rgba(255, 0, 0, 0.3);
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
-.navbar .nav-link,
 .navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar-brand:hover {
+    color: #ffd6d6 !important;
+}
+
+.navbar .nav-link {
     color: white !important;
     font-weight: bold;
 }
@@ -18,13 +53,30 @@ body {
     color: #ffd6d6 !important;
 }
 
-/* Titres */
-h1, h2, h3 {
-    color: #ff3b3b;
-    font-weight: bold;
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Tables */
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.nav-marvel {
+    color: white !important;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.nav-marvel:hover {
+    color: #ffd6d6 !important;
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
 .table {
     background-color: #1e1e1e;
     color: white;
@@ -39,7 +91,9 @@ h1, h2, h3 {
     color: white;
 }
 
-/* Cartes / formulaires */
+/* ============================================================
+   FORMULAIRES
+   ============================================================ */
 .form-control,
 .form-select {
     background-color: #2a2a2a;
@@ -55,7 +109,9 @@ h1, h2, h3 {
     box-shadow: 0 0 5px #ff3b3b;
 }
 
-/* Boutons */
+/* ============================================================
+   BOUTONS
+   ============================================================ */
 .btn-primary {
     background-color: #b30000;
     border-color: #b30000;
@@ -73,6 +129,7 @@ h1, h2, h3 {
 
 .btn-success:hover {
     background-color: #ff3333;
+    border-color: #ff3333;
 }
 
 .btn-warning {
@@ -86,7 +143,9 @@ h1, h2, h3 {
     border-color: #660000;
 }
 
-/* Pagination */
+/* ============================================================
+   PAGINATION
+   ============================================================ */
 .page-link {
     background-color: #1e1e1e;
     color: white;
@@ -98,22 +157,26 @@ h1, h2, h3 {
     border-color: #b30000;
 }
 
-/* Alerts */
+/* ============================================================
+   ALERTS
+   ============================================================ */
 .alert-danger {
     background-color: #660000;
     color: white;
     border: none;
 }
 
-/* Liens */
-a {
-  color: #ff4d4d;
+.alert-marvel {
+    background-color: #1e1e1e;
+    color: #7CFC98;
+    border: 1px solid #198754;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(25, 135, 84, 0.4);
 }
 
-a:hover {
-  color: #ff9999;
-}
-
+/* ============================================================
+   CARTES PERSONNAGES
+   ============================================================ */
 .character-card {
     background-color: #1e1e1e;
     color: white;
@@ -146,11 +209,9 @@ a:hover {
     background-color: #111;
 }
 
-.navbar .nav-link:hover,
-.navbar-brand:hover {
-    color: #ffd6d6 !important;
-}
-
+/* ============================================================
+   FOOTER
+   ============================================================ */
 .footer-marvel {
     background-color: #0d0d0d;
     border-top: 2px solid #b30000;
@@ -170,50 +231,10 @@ a:hover {
 .footer-marvel small {
     color: #777;
 }
-.navbar {
-    background: linear-gradient(90deg, #660000, #b30000);
-    box-shadow: 0 2px 12px rgba(255, 0, 0, 0.3);
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
 
-.navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    font-weight: bold;
-    color: white !important;
-}
-
-.nav-marvel {
-    color: white !important;
-    font-weight: 600;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition: 0.2s;
-}
-
-.nav-marvel:hover {
-    color: #ffd6d6 !important;
-    transform: translateY(-1px);
-}
-
-.navbar-toggler {
-    border-color: rgba(255,255,255,0.5);
-}
-
-.navbar-toggler-icon {
-    filter: invert(1);
-}
-.nav-marvel {
-    color: white !important;
-    font-weight: 600;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.nav-marvel:hover {
-    color: #ffd6d6 !important;
-}
+/* ============================================================
+   AUTHENTIFICATION
+   ============================================================ */
 .auth-container {
     min-height: 65vh;
     display: flex;
@@ -258,6 +279,27 @@ a:hover {
 .auth-link a:hover {
     color: #ff9999;
 }
+
+.auth-card .form-control {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #b30000;
+}
+
+.auth-card .form-control::placeholder {
+    color: #777;
+}
+
+.auth-card .form-control:focus {
+    background-color: #2a2a2a;
+    color: white;
+    border-color: #ff3b3b;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+/* ============================================================
+   RECHERCHE
+   ============================================================ */
 .search-section {
     text-align: center;
 }
@@ -265,8 +307,8 @@ a:hover {
 .search-title {
     color: #ff3b3b;
     font-size: 2rem;
-    margin-bottom: 10px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .search-subtitle {
@@ -291,7 +333,7 @@ a:hover {
     background-color: #1e1e1e;
     color: white;
     font-size: 1rem;
-    transition: 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
@@ -307,26 +349,10 @@ a:hover {
     background: linear-gradient(90deg, #990000, #cc0000);
     color: white;
     font-weight: bold;
-    transition: 0.2s;
+    transition: transform 0.2s, background 0.2s;
 }
 
 .search-button:hover {
     transform: translateY(-2px);
     background: linear-gradient(90deg, #cc0000, #ff1a1a);
-}
-.auth-card .form-control {
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-    border: 1px solid #b30000;
-}
-
-.auth-card .form-control::placeholder {
-    color: #777;
-}
-
-.auth-card .form-control:focus {
-    background-color: #2a2a2a;
-    color: white;
-    border-color: #ff3b3b;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
 }

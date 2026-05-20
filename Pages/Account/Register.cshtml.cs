@@ -49,6 +49,7 @@ public class RegisterModel : PageModel
 
         _userService.Register(Name, Email, Password);
 
+        TempData["SuccessMessage"] = "Compte créé avec succès. Vous pouvez maintenant vous connecter.";
         return RedirectToPage("/Account/Login");
     }
 }

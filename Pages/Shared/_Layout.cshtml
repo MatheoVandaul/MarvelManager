@@ -71,6 +71,13 @@
     </header>
 <div class="container flex-fill py-4">
     <main role="main">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="success-alert"
+                 class="alert alert-success alert-marvel text-center">
+                @TempData["SuccessMessage"]
+            </div>
+        }
         @RenderBody()
     </main>
 </div>
@@ -104,5 +111,21 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-</body>
+    
+    <script>
+    const alertBox = document.getElementById("success-alert");
+
+    if (alertBox) {
+        setTimeout(() => {
+            alertBox.style.transition = "opacity 0.5s ease";
+            alertBox.style.opacity = "0";
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 500);
+
+        }, 3000);
+    }
+</script>
+    </body>
 </html>

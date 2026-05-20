@@ -56,6 +56,7 @@ public class LoginModel : PageModel
         var principal = new ClaimsPrincipal(identity);
 
         await HttpContext.SignInAsync("CookieAuth", principal);
+        TempData["SuccessMessage"] = $"Bienvenue {user.Name}, vous êtes connecté.";
 
         return RedirectToPage("/Index");
     }
