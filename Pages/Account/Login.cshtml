@@ -5,31 +5,41 @@
     ViewData["Title"] = "Connexion";
 }
 
-<h1>Connexion</h1>
+<div class="auth-container">
+    <div class="auth-card">
 
-@if (Model.ErrorMessage != null)
-{
-    <div class="alert alert-danger">
-        @Model.ErrorMessage
+        <h1>Connexion</h1>
+        <p class="auth-subtitle">Accédez à votre compte Marvel Manager</p>
+
+        @if (Model.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                @Model.ErrorMessage
+            </div>
+        }
+
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="exemple@email.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label">Mot de passe</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Votre mot de passe" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">
+                Se connecter
+            </button>
+        </form>
+
+        <p class="auth-link">
+            Pas encore de compte ?
+            <a asp-page="/Account/Register">Créer un compte</a>
+        </p>
+
     </div>
-}
-
-<form method="post">
-
-    <div class="mb-3">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">
-        Se connecter
-    </button>
-
-</form>
+</div>

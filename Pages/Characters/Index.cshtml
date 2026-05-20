@@ -5,21 +5,36 @@
     ViewData["Title"] = "Personnages Marvel";
 }
 
-<h1>Personnages Marvel</h1>
 
-<form method="get" class="mb-3">
-    <div class="input-group">
-        <input type="text"
-               name="search"
-               value="@Model.Search"
-               class="form-control"
-               placeholder="Rechercher un personnage, une équipe..." />
+<div class="search-section mb-5">
 
-        <button type="submit" class="btn btn-primary">
-            Rechercher
-        </button>
-    </div>
-</form>
+    <h2 class="search-title">
+        Explorer les personnages Marvel
+    </h2>
+
+    <p class="search-subtitle">
+        Recherchez un héros, un nom réel ou une équipe.
+    </p>
+
+    <form method="get">
+
+        <div class="search-bar-container">
+
+            <input type="text"
+                   name="search"
+                   value="@Model.Search"
+                   class="search-input"
+                   placeholder="Iron Man, Avengers, Wolverine..." />
+
+            <button type="submit" class="search-button">
+                Rechercher
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
 @if (User.IsInRole("Admin"))
 {
     <a class="btn btn-primary mb-3" asp-page="/Characters/Create">
