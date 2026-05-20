@@ -28,7 +28,45 @@
                                 Personnages Marvel
                             </a>
                         </li>
+                        <li>@if (User.Identity?.IsAuthenticated == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                       asp-page="/Account/Logout">
+                                        Déconnexion
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                       asp-page="/Account/Login">
+                                        Connexion
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"
+                                       asp-page="/Account/Register">
+                                        Inscription
+                                    </a>
+                                </li>
+                            }</li>
+                        <li>@if (User.Identity?.IsAuthenticated == true)
+                            {
+                                <p>
+                                    Connecté : @User.Identity.Name |
+                                    Rôle admin : @User.IsInRole("Admin")
+                                </p>
+                            }
+                            else
+                            {
+                                <p>Non connecté</p>
+                            }</li>
+                        
                     </ul>
+                    
                 </div>
             </div>
         </nav>

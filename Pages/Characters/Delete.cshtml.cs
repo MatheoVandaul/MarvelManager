@@ -2,9 +2,11 @@ using MarvelManager.Models;
 using MarvelManager.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MarvelManager.Pages.Characters;
 
+[Authorize(Roles = "Admin")]
 public class DeleteModel : PageModel
 {
     private readonly CharacterService _characterService;

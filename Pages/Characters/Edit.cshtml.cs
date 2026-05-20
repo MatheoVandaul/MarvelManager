@@ -3,9 +3,11 @@ using MarvelManager.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MarvelManager.Pages.Characters;
 
+[Authorize(Roles = "Admin")]
 public class EditModel : PageModel
 {
     private readonly CharacterService _characterService;
