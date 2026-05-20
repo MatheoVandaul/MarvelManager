@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MarvelManager.Pages.Characters;
 
+
 public class IndexModel : PageModel
 {
     private readonly CharacterService _characterService;
@@ -19,6 +20,7 @@ public class IndexModel : PageModel
     public IndexModel(CharacterService characterService)
     {
         _characterService = characterService;
+        
     }
 
     public void OnGet(string? search, int pageNumber = 1)
@@ -32,5 +34,7 @@ public class IndexModel : PageModel
 
         var totalCharacters = _characterService.Count(search);
         TotalPages = (int)Math.Ceiling(totalCharacters / (double)pageSize);
+        
     }
+    
 }

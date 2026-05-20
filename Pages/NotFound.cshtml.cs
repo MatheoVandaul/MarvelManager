@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace MarvelManager.Pages;
 
 [AllowAnonymous]
-public class ErrorModel : PageModel
+public class NotFoundModel : PageModel
 {
     public void OnGet()
     {
