@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarvelManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f1786725f10d783d1846f503a3579d662db6ece")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7da7d912b711699daa4d7ca511408eef09b77a70")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarvelManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarvelManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

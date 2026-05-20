@@ -20,10 +20,12 @@
         </button>
     </div>
 </form>
-
-<a class="btn btn-primary mb-3" asp-page="/Characters/Create">
-    Ajouter un personnage
-</a>
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-primary mb-3" asp-page="/Characters/Create">
+        Ajouter un personnage
+    </a>
+}
 
 <a class="btn btn-success mb-3"
    asp-page="/Characters/ExportCsv">
@@ -55,17 +57,21 @@
                    asp-route-id="@character.Id">
                     Détails
                 </a>
-                <a class="btn btn-sm btn-warning"
-                   asp-page="/Characters/Edit"
-                   asp-route-id="@character.Id">
-                    Modifier
-                </a>
-                <a class="btn btn-sm btn-danger"
-                   asp-page="/Characters/Delete"
-                   asp-route-id="@character.Id">
-                    Supprimer
-                </a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-sm btn-warning"
+                       asp-page="/Characters/Edit"
+                       asp-route-id="@character.Id">
+                        Modifier
+                    </a>
                 
+                    <a class="btn btn-sm btn-danger"
+                       asp-page="/Characters/Delete"
+                       asp-route-id="@character.Id">
+                        Supprimer
+                    </a>
+                }
+
             </td>
             
         </tr>
