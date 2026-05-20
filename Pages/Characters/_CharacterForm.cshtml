@@ -1,0 +1,26 @@
+@model MarvelManager.Models.MarvelCharacter
+
+<div class="mb-3">
+    <label asp-for="@Model.Name"></label>
+    <input name="Character.Name" value="@Model.Name" class="form-control"/>
+</div>
+
+<div class="mb-3">
+    <label asp-for="@Model.HeroName"></label>
+    <input name="Character.HeroName" value="@Model.HeroName" class="form-control"/>
+</div>
+
+<div class="mb-3">
+    <label asp-for="@Model.Power"></label>
+    <input name="Character.Power" value="@Model.Power" class="form-control"/>
+</div>
+
+<div class="mb-3">
+    <label asp-for="@Model.PowerLevel"></label>
+    <input name="Character.PowerLevel" value="@Model.PowerLevel" class="form-control"/>
+</div>
+
+<div class="mb-3">
+    <label asp-for="@Model.ImageUrl"></label>
+    <input name="Character.ImageUrl" value="@Model.ImageUrl" class="form-control"/>
+</div>
