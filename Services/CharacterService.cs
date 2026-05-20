@@ -193,4 +193,47 @@ public class CharacterService
 
         return Convert.ToInt32(command.ExecuteScalar());
     }
+    
+    public List<MarvelCharacter> GetAllForExport()
+    {
+        var characters = new List<MarvelCharacter>();
+
+        using var connection = new NpgsqlConnection(_connectionString);
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = """
+                                  SELECT c.id,
+                                         c.name,
+                                         c.hero_name,
+                                         c.power,
+                                         c.power_level,
+                                         c.image_url,
+                                         c.team_id,
+                                         t.name
+                                  FROM characters c
+                                  JOIN teams t ON c.team_id = t.id
+                                  ORDER BY c.hero_name
+                              """;
+
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            characters.Add(new MarvelCharacter
+            {
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                HeroName = reader.GetString(2),
+                Power = reader.GetString(3),
+                PowerLevel = reader.GetInt32(4),
+                ImageUrl = reader.IsDBNull(5) ? null : reader.GetString(5),
+                TeamId = reader.GetInt32(6),
+                TeamName = reader.GetString(7)
+            });
+        }
+
+        return characters;
+    }
 }

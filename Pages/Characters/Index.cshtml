@@ -25,6 +25,11 @@
     Ajouter un personnage
 </a>
 
+<a class="btn btn-success mb-3"
+   asp-page="/Characters/ExportCsv">
+    Exporter CSV
+</a>
+
 <table class="table table-striped">
     <thead>
     <tr>
@@ -60,6 +65,7 @@
                    asp-route-id="@character.Id">
                     Supprimer
                 </a>
+                
             </td>
             
         </tr>
